@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -7,7 +6,16 @@ import Plot from '../components/plot';
 
 let myData = [
   {
-    id: 'group A',
+    id: 'origin',
+    data: [
+      {
+        x: 0,
+        y: 0,
+      },
+    ],
+  },
+  {
+    id: 'target',
     data: [
       {
         x: 1,
@@ -30,8 +38,8 @@ const fetchPosition = () => {
     })
     .then((responseJson) => {
       console.log(responseJson);
-      myData[0].data[0].x = responseJson.x;
-      myData[0].data[0].y = responseJson.z;
+      myData[1].data[0].x = responseJson.x;
+      myData[1].data[0].y = responseJson.z;
       return myData;
     })
     .catch(err => console.log('err', err));
@@ -57,7 +65,6 @@ class IndexPage extends React.Component {
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <Plot data={myData} />
-        <Link to="/page-2/">Go to page 2</Link>
       </Layout>
     );
   }

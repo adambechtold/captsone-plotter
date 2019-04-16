@@ -3,12 +3,14 @@ import React from 'react';
 import { ResponsiveScatterPlot } from '@nivo/scatterplot';
 
 const containerStyle = {
-  height: 300,
+  height: 600,
+  width: 800
 };
+
+const range = 8;
 
 const Plot = ({ data }) => (
   <div style={containerStyle}>
-    Plot goes here!
     <ResponsiveScatterPlot
       data={data}
       margin={{
@@ -17,15 +19,17 @@ const Plot = ({ data }) => (
         bottom: 70,
         left: 90,
       }}
+      colors={['#1b8bcdff', '#27c78aff']}
       xScale={{
         type: 'linear',
-        min: -10,
-        max: 10,
+        min: -range,
+        max: range,
       }}
+      symbolSize={20}
       yScale={{
         type: 'linear',
-        min: -10,
-        max: 10,
+        min: -range,
+        max: range,
       }}
       axisTop={null}
       axisRight={null}
@@ -34,7 +38,7 @@ const Plot = ({ data }) => (
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: 'weight',
+        legend: 'x (meters)',
         legendPosition: 'middle',
         legendOffset: 46,
       }}
@@ -43,7 +47,7 @@ const Plot = ({ data }) => (
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: 'size',
+        legend: 'y (meters)',
         legendPosition: 'middle',
         legendOffset: -60,
       }}
