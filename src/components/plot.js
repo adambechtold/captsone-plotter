@@ -7,7 +7,7 @@ const containerStyle = {
   width: 800
 };
 
-const range = 8;
+const range = 5;
 
 const Plot = ({ data }) => (
   <div style={containerStyle}>
